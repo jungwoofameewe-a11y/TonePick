@@ -89,7 +89,7 @@ body {
 .subtitle {
   margin-top: 10px;
   margin-bottom: 40px;
-  color: #555;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* 카드 그리드 */
