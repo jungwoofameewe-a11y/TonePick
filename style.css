@@ -80,3 +80,42 @@ p {
     transform: translateY(0);
   }
 }
+/* ===== 버튼 영역 ===== */
+.buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* 공통 버튼 */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+/* 메인 버튼 */
+.btn.primary {
+  background-color: #1F2A44;
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #162033;
+}
+
+/* 보조 버튼 */
+.btn.secondary {
+  background-color: #e9edf3;
+  color: #1F2A44;
+}
+
+.btn.secondary:hover {
+  background-color: #dce2eb;
+}
+
