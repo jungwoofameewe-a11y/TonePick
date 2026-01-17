@@ -1,36 +1,150 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <title>분야 선택 - TonePick</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* ===== 기본 초기화 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+}
 
-  <div class="select-container">
-    <h1 style="color:white;">어떤 분야에 사용할 색인가요?</h1>
-    <p class="subtitle">목적에 맞는 색을 추천해드려요</p>
+/* ===== body : 배경 전용 ===== */
+body {
+  min-height: 100vh;
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-    <div class="select-grid">
-      <a href="mood.html" class="select-card">
-        <span class="emoji">👔</span>
-        <h2>패션 · 옷 코디</h2>
-        <p>첫인상과 조화</p>
-      </a>
+/* ===== 가운데 정렬용 래퍼 (메인 페이지 전용) ===== */
+.page-center {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-      <a href="mood.html" class="select-card">
-        <span class="emoji">🏠</span>
-        <h2>인테리어 · 공간</h2>
-        <p>분위기와 무드</p>
-      </a>
+/* ===== 메인 카드 ===== */
+.card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  padding: 48px 40px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  max-width: 420px;
+  width: 90%;
+}
 
-      <a href="mood.html" class="select-card">
-        <span class="emoji">📊</span>
-        <h2>PPT · 발표</h2>
-        <p>가독성과 설득력</p>
-      </a>
-    </div>
-  </div>
+.card h1 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1f2a44;
+}
 
-</body>
-</html>
+.card p {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* ===== 버튼 ===== */
+.buttons {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding: 14px 34px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.25s ease;
+}
+
+.btn.primary {
+  background-color: #1f2a44;
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #141c30;
+  transform: translateY(-2px);
+}
+
+/* ===== 선택 페이지 공통 ===== */
+.select-container {
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.select-container h1 {
+  font-size: 32px;
+  color: white;
+}
+
+.subtitle {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ===== 카드 그리드 ===== */
+.select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* ===== 선택 카드 ===== */
+.select-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 22px;
+  padding: 32px 24px;
+  text-decoration: none;
+  color: #1f2a44;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.select-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+.select-card .emoji {
+  font-size: 44px;
+}
+
+.select-card h2 {
+  margin-top: 18px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.select-card p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ===== 모바일 보정 ===== */
+@media (max-width: 480px) {
+  .card {
+    padding: 36px 24px;
+  }
+
+  .card h1 {
+    font-size: 30px;
+  }
+}
