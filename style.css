@@ -1,121 +1,145 @@
-/* ===== 전체 배경 ===== */
-body {
+/* ===== 기본 초기화 ===== */
+* {
   margin: 0;
   padding: 0;
-  font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+}
 
-  background-image: url("background.jpg");
+body {
+  min-height: 100vh;
+  background-image: url("background.jpg"); /* ← 네 배경 이미지 이름 */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  min-height: 100vh;
-  text-align: center;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* ===== 하얀 오버레이 ===== */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  z-index: 10;
-
-  animation: fadeOut 1.2s ease forwards;
-}
-
-/* ===== 중앙 카드 ===== */
+/* ===== 메인 카드 ===== */
 .card {
-  position: relative;
-  z-index: 20;
-
-  max-width: 600px;
-  margin: 160px auto;
-  padding: 60px 40px;
-
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-
-  animation: cardUp 1s ease forwards;
-  animation-delay: 0.6s;
-  opacity: 0;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  padding: 48px 40px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  max-width: 420px;
+  width: 90%;
 }
 
-/* ===== 텍스트 ===== */
-h1 {
-  margin: 0;
-  font-size: 48px;
-  letter-spacing: -1px;
-  color: #1F2A44;
+.card h1 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1f2a44;
 }
 
-p {
-  margin-top: 20px;
-  font-size: 18px;
+.card p {
+  margin-top: 12px;
+  font-size: 16px;
   color: #555;
 }
 
-/* ===== 애니메이션 정의 ===== */
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-@keyframes cardUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* ===== 버튼 영역 ===== */
+/* ===== 버튼 ===== */
 .buttons {
-  margin-top: 40px;
+  margin-top: 36px;
   display: flex;
   justify-content: center;
-  gap: 16px;
 }
 
-/* 공통 버튼 */
 .btn {
-  display: inline-block;
-  padding: 14px 28px;
-  font-size: 16px;
+  padding: 14px 34px;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
+  font-size: 16px;
   transition: all 0.25s ease;
 }
 
-/* 메인 버튼 */
 .btn.primary {
-  background-color: #1F2A44;
+  background-color: #1f2a44;
   color: white;
 }
 
 .btn.primary:hover {
-  background-color: #162033;
+  background-color: #141c30;
+  transform: translateY(-2px);
 }
 
-/* 보조 버튼 */
-.btn.secondary {
-  background-color: #e9edf3;
-  color: #1F2A44;
+/* ===== 분야 선택 페이지 ===== */
+.select-container {
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.btn.secondary:hover {
-  background-color: #dce2eb;
+.select-container h1 {
+  font-size: 32px;
+  color: #1f2a44;
 }
 
+.subtitle {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+/* 카드 그리드 */
+.select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* 분야 카드 */
+.select-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 22px;
+  padding: 32px 24px;
+  text-decoration: none;
+  color: #1f2a44;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.select-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+.select-card .emoji {
+  font-size: 44px;
+}
+
+.select-card h2 {
+  margin-top: 18px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.select-card p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ===== 모바일 보정 ===== */
+@media (max-width: 480px) {
+  .card {
+    padding: 36px 24px;
+  }
+
+  .card h1 {
+    font-size: 30px;
+  }
+}
