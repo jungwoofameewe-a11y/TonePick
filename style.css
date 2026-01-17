@@ -1,10 +1,9 @@
-/* CSS 연결 테스트용 */
 body {
   margin: 0;
   padding: 0;
-  background-color: red; /* ← 무조건 눈에 띄게 */
   font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-  color: white;
+  background-color: #f5f7fa;
+  color: #222;
   text-align: center;
 }
 
@@ -12,16 +11,19 @@ body {
   max-width: 600px;
   margin: 160px auto;
   padding: 60px 40px;
-  background: black;
+  background: #ffffff;
   border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 h1 {
   margin: 0;
   font-size: 48px;
+  letter-spacing: -1px;
 }
 
 p {
   margin-top: 20px;
   font-size: 18px;
+  color: #555;
 }
