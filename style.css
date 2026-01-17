@@ -1,27 +1,47 @@
+/* ===== 전체 배경 ===== */
 body {
   margin: 0;
   padding: 0;
   font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-  background-color: #f5f7fa;
-  color: #222;
+
+  /* 배경 이미지 */
+  background-image:
+    linear-gradient(
+      rgba(31, 42, 68, 0.65),
+      rgba(31, 42, 68, 0.65)
+    ),
+    url("background.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 100vh;
   text-align: center;
 }
 
+/* ===== 중앙 카드 ===== */
 .card {
   max-width: 600px;
   margin: 160px auto;
   padding: 60px 40px;
-  background: #ffffff;
+
+  /* 가독성 보정 */
+  background: rgba(255, 255, 255, 0.92);
+
   border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
+/* ===== 제목 ===== */
 h1 {
   margin: 0;
   font-size: 48px;
   letter-spacing: -1px;
+  color: #1F2A44;
 }
 
+/* ===== 설명 문구 ===== */
 p {
   margin-top: 20px;
   font-size: 18px;
