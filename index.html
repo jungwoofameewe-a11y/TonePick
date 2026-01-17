@@ -2,35 +2,27 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>분야 선택 - TonePick</title>
+  <title>TonePick</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="select-container">
-    <h1>어떤 분야에 사용할 색인가요?</h1>
-    <p class="subtitle">목적에 맞는 색을 추천해드려요</p>
+  <div class="card">
+    <h1>TonePick</h1>
+    <p>색으로 분위기와 목적을 설계하다</p>
 
-    <div class="select-grid">
-      <a href="fashion.html" class="select-card">
-        <span class="emoji">👔</span>
-        <h2>패션 · 옷 코디</h2>
-        <p>첫인상, 조화, 분위기</p>
-      </a>
-
-      <a href="interior.html" class="select-card">
-        <span class="emoji">🏠</span>
-        <h2>인테리어 · 공간</h2>
-        <p>따뜻함, 안정감, 무드</p>
-      </a>
-
-      <a href="ppt.html" class="select-card">
-        <span class="emoji">📊</span>
-        <h2>PPT · 발표</h2>
-        <p>가독성, 설득력, 집중도</p>
-      </a>
+    <div class="buttons">
+      <a href="select.html" class="btn primary">색 추천 받기</a>
     </div>
   </div>
+
+  <script>
+    document.body.style.opacity = 0;
+    window.onload = () => {
+      document.body.style.transition = "opacity 0.8s ease";
+      document.body.style.opacity = 1;
+    };
+  </script>
 
 </body>
 </html>
