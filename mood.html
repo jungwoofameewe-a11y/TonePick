@@ -1,27 +1,7 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <title>분위기 선택 - TonePick</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <div class="select-container">
-    <h1 id="title">어떤 분위기를 원하시나요?</h1>
-    <p class="subtitle" id="subtitle">색은 분위기를 만듭니다</p>
-
-    <div class="select-grid" id="moodGrid">
-      <!-- JS로 채워짐 -->
-    </div>
-  </div>
-
 <script>
-  // 1. URL에서 type 읽기
   const params = new URLSearchParams(window.location.search);
   const type = params.get("type");
 
-  // 2. 분야별 분위기 데이터
   const moodData = {
     fashion: {
       title: "어떤 스타일의 옷인가요?",
@@ -49,13 +29,12 @@
     }
   };
 
-  // 3. 선택된 분야 데이터 적용
   const current = moodData[type];
+  const grid = document.getElementById("moodGrid");
 
   if (current) {
     document.getElementById("title").textContent = current.title;
 
-    const grid = document.getElementById("moodGrid");
     current.moods.forEach(mood => {
       grid.innerHTML += `
         <a href="result.html" class="select-card">
@@ -65,8 +44,20 @@
         </a>
       `;
     });
+
+    // ✅ 기타(직접 입력) 카드 추가
+    grid.innerHTML += `
+      <div class="select-card custom-card">
+        <span class="emoji">✍️</span>
+        <h2>기타</h2>
+        <p>원하는 분위기를 직접 적어보세요</p>
+        <input
+          type="text"
+          placeholder="예: 차분하지만 고급스럽게"
+          class="custom-input"
+        >
+      </div>
+    `;
   }
 </script>
 
-</body>
-</html>
