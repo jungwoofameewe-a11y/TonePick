@@ -1,63 +1,87 @@
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const type = params.get("type");
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>분위기 선택 - TonePick</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<div class="select-container">
+  <h1 id="title">분위기를 선택하세요</h1>
+  <p class="subtitle">원하는 느낌에 맞춰 색을 추천해요</p>
+
+  <div class="select-grid" id="moodGrid">
+    <!-- JS로 채워짐 -->
+  </div>
+</div>
+
+<script>
+  // 🔐 URL 안전 처리
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type") || "ppt";
+
+  // 🎨 데이터
   const moodData = {
     fashion: {
       title: "어떤 스타일의 옷인가요?",
       moods: [
-        { emoji: "👕", title: "캐주얼", desc: "편안하고 자연스럽게" },
-        { emoji: "🕴️", title: "포멀", desc: "단정하고 신뢰감 있게" },
-        { emoji: "🔥", title: "스트릿", desc: "개성 있고 강렬하게" }
+        { key: "casual", emoji: "👕", title: "캐주얼", desc: "편안하고 자연스럽게" },
+        { key: "formal", emoji: "🕴️", title: "포멀", desc: "단정하고 신뢰감 있게" },
+        { key: "street", emoji: "🔥", title: "스트릿", desc: "개성 있고 강렬하게" }
       ]
     },
     interior: {
       title: "어떤 공간 분위기인가요?",
       moods: [
-        { emoji: "☀️", title: "따뜻함", desc: "아늑하고 편안한 공간" },
-        { emoji: "🧊", title: "미니멀", desc: "차분하고 정돈된 느낌" },
-        { emoji: "💎", title: "고급스러움", desc: "무게감 있고 세련되게" }
+        { key: "warm", emoji: "☀️", title: "따뜻함", desc: "아늑하고 편안한 공간" },
+        { key: "minimal", emoji: "🧊", title: "미니멀", desc: "차분하고 정돈된 느낌" },
+        { key: "luxury", emoji: "💎", title: "고급스러움", desc: "무게감 있고 세련되게" }
       ]
     },
     ppt: {
       title: "발표의 목적은 무엇인가요?",
       moods: [
-        { emoji: "🎯", title: "신뢰감", desc: "보고서·비즈니스" },
-        { emoji: "🔥", title: "설득", desc: "주장·토론" },
-        { emoji: "🧠", title: "정보 전달", desc: "설명·학습" }
+        { key: "trust", emoji: "🎯", title: "신뢰감", desc: "보고서·비즈니스" },
+        { key: "persuade", emoji: "🔥", title: "설득", desc: "주장·토론" },
+        { key: "info", emoji: "🧠", title: "정보 전달", desc: "설명·학습" }
       ]
     }
   };
 
-  const current = moodData[type];
+  const current = moodData[type] || moodData.ppt;
+
+  // 제목 변경
+  document.getElementById("title").textContent = current.title;
+
   const grid = document.getElementById("moodGrid");
 
-  if (current) {
-    document.getElementById("title").textContent = current.title;
+  // 카드 생성
+  current.moods.forEach(mood => {
+    const card = document.createElement("a");
+    card.className = "select-card";
+    card.href = `result.html?type=${type}&mood=${mood.key}`;
 
-    current.moods.forEach(mood => {
-      grid.innerHTML += `
-        <a href="result.html" class="select-card">
-          <span class="emoji">${mood.emoji}</span>
-          <h2>${mood.title}</h2>
-          <p>${mood.desc}</p>
-        </a>
-      `;
-    });
-
-    // ✅ 기타(직접 입력) 카드 추가
-    grid.innerHTML += `
-      <div class="select-card custom-card">
-        <span class="emoji">✍️</span>
-        <h2>기타</h2>
-        <p>원하는 분위기를 직접 적어보세요</p>
-        <input
-          type="text"
-          placeholder="예: 차분하지만 고급스럽게"
-          class="custom-input"
-        >
-      </div>
+    card.innerHTML = `
+      <span class="emoji">${mood.emoji}</span>
+      <h2>${mood.title}</h2>
+      <p>${mood.desc}</p>
     `;
-  }
+
+    grid.appendChild(card);
+  });
+
+  // ✍️ 기타 입력 카드
+  const custom = document.createElement("div");
+  custom.className = "select-card custom-card";
+  custom.innerHTML = `
+    <span class="emoji">✍️</span>
+    <h2>기타</h2>
+    <p>원하는 분위기를 직접 적어보세요</p>
+    <input class="custom-input" placeholder="예: 차분하지만 고급스럽게">
+  `;
+  grid.appendChild(custom);
 </script>
 
+</body>
+</html>
