@@ -1,26 +1,23 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <title>색 추천 결과 - TonePick</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-  <div class="card">
-    <h1>추천 색 조합</h1>
-    <p>이 분위기에는 차분하고 신뢰감 있는 색이 어울려요.</p>
+<!-- 🔄 로딩 화면 -->
+<div id="loading" class="loading-screen">
+  <div class="spinner"></div>
+  <p>색을 분석 중입니다…</p>
+</div>
 
-    <p style="margin-top:20px;">
-      🟦 메인: 네이비<br>
-      ⬜ 서브: 화이트<br>
-      🟨 포인트: 소프트 옐로우
-    </p>
+<!-- 🎨 결과 화면 -->
+<div id="result" class="result-screen hidden">
+  <h1>추천 색 조합</h1>
 
-    <div class="buttons">
-      <a href="index.html" class="btn primary">처음으로</a>
-    </div>
+  <div class="palette">
+    <div class="color-box" id="c1"></div>
+    <div class="color-box" id="c2"></div>
+    <div class="color-box" id="c3"></div>
   </div>
 
+  <button onclick="location.reload()">다시 추천</button>
+</div>
+
+<script src="result.js"></script>
 </body>
-</html>
