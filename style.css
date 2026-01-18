@@ -148,3 +148,17 @@ body {
     font-size: 30px;
   }
 }
+
+.custom-card {
+  cursor: default;
+}
+
+.custom-input {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+}
