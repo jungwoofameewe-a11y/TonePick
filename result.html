@@ -2,18 +2,18 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>TonePick 결과</title>
+  <title>색 추천 결과 - TonePick</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- 로딩 화면 -->
+<!-- 🌈 로딩 화면 -->
 <div id="loading" class="loading-screen">
   <div class="spinner"></div>
-  <p>색을 분석 중입니다…</p>
+  <p class="loading-text">색을 분석 중입니다…</p>
 </div>
 
-<!-- 결과 화면 -->
+<!-- 🎨 결과 화면 -->
 <div id="result" class="result-screen hidden">
   <h1>추천 색 조합</h1>
 
@@ -23,9 +23,14 @@
     <div class="color-box" id="c3"></div>
   </div>
 
-  <button onclick="location.reload()">다시 추천</button>
+  <button class="retry-btn" onclick="location.reload()">
+    다시 추천받기
+  </button>
 </div>
 
+<!-- JS -->
 <script src="result.js"></script>
+
 </body>
 </html>
+
