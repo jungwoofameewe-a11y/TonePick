@@ -1,5 +1,5 @@
 /* =====================
-   기본 리셋 & 공통
+   기본 리셋
 ===================== */
 * {
   margin: 0;
@@ -9,22 +9,27 @@
                Roboto, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
 }
 
+/* =====================
+   전체 배경 (⭐ 복구 핵심)
+===================== */
 body {
   min-height: 100vh;
-  background: #ffffff;
+  background: linear-gradient(180deg, #f7f8fa 0%, #ffffff 60%);
   color: #111;
 }
 
-/* 숨김 처리 */
+/* 숨김 */
 .hidden {
   display: none;
 }
 
 /* =====================
-   선택 페이지 공통
+   선택 페이지
 ===================== */
 .select-container {
-  padding: 40px 20px;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 48px 20px;
   text-align: center;
 }
 
@@ -36,7 +41,7 @@ body {
 .subtitle {
   font-size: 14px;
   color: #666;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
 }
 
 .select-grid {
@@ -48,28 +53,28 @@ body {
 /* 카드 */
 .select-card {
   background: #ffffff;
-  border-radius: 16px;
-  padding: 20px 16px;
+  border-radius: 18px;
+  padding: 22px 16px;
   text-decoration: none;
   color: inherit;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .select-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 26px rgba(0,0,0,0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
 }
 
 .select-card .emoji {
   font-size: 28px;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .select-card h2 {
   font-size: 16px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .select-card p {
@@ -77,28 +82,28 @@ body {
   color: #666;
 }
 
-/* 기타 입력 카드 */
+/* 기타 입력 */
 .custom-card {
   cursor: default;
 }
 
 .custom-input {
-  margin-top: 10px;
+  margin-top: 12px;
   width: 100%;
   padding: 10px;
   font-size: 13px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #ddd;
   outline: none;
 }
 
 /* =====================
-   결과 페이지 - 로딩
+   로딩 화면
 ===================== */
 .loading-screen {
   position: fixed;
   inset: 0;
-  background: #ffffff;
+  background: linear-gradient(180deg, #f7f8fa, #ffffff);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -106,7 +111,7 @@ body {
 }
 
 .loading-text {
-  margin-top: 14px;
+  margin-top: 16px;
   font-size: 14px;
   color: #555;
 }
@@ -114,8 +119,8 @@ body {
 /* 🌈 색이 변하는 스피너 */
 .spinner {
   position: relative;
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: conic-gradient(
     #ff6b6b,
@@ -129,69 +134,26 @@ body {
              hue 4s linear infinite;
 }
 
-/* 도넛 가운데 */
 .spinner::before {
   content: "";
   position: absolute;
-  inset: 8px;
+  inset: 9px;
   background: #ffffff;
   border-radius: 50%;
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes hue {
-  from {
-    filter: hue-rotate(0deg);
-  }
-  to {
-    filter: hue-rotate(360deg);
-  }
+  from { filter: hue-rotate(0deg); }
+  to   { filter: hue-rotate(360deg); }
 }
 
 /* =====================
-   결과 페이지 - 색 결과
+   결과 페이지
 ===================== */
 .result-screen {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.result-screen h1 {
-  font-size: 22px;
-  margin-bottom: 28px;
-}
-
-.palette {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 32px;
-}
-
-.color-box {
-  width: 90px;
-  height: 90px;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
-
-/* 다시 추천 버튼 */
-.retry-btn {
-  padding: 12px 20px;
-  border-radius: 999px;
-  border: none;
-  font-size: 14px;
-  background: #111;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.retry-btn:hover {
-  opacity: 0.9;
-}
-
+  max-width: 520px;
+  margin: 0 auto
