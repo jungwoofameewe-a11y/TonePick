@@ -10,12 +10,15 @@
 }
 
 /* =====================
-   전체 배경 (⭐ 복구 핵심)
+   전체 배경 (⭐ 핵심)
 ===================== */
 body {
   min-height: 100vh;
-  background: linear-gradient(180deg, #f7f8fa 0%, #ffffff 60%);
-  color: #111;
+  background-image: url("./images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
 }
 
 /* 숨김 */
@@ -24,26 +27,32 @@ body {
 }
 
 /* =====================
-   선택 페이지
+   공통 컨테이너
 ===================== */
-.select-container {
+.container {
   max-width: 520px;
   margin: 0 auto;
   padding: 48px 20px;
   text-align: center;
 }
 
-.select-container h1 {
+/* =====================
+   제목 / 설명
+===================== */
+h1 {
   font-size: 22px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .subtitle {
   font-size: 14px;
-  color: #666;
+  opacity: 0.85;
   margin-bottom: 36px;
 }
 
+/* =====================
+   카드 그리드
+===================== */
 .select-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -52,18 +61,19 @@ body {
 
 /* 카드 */
 .select-card {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
   border-radius: 18px;
   padding: 22px 16px;
   text-decoration: none;
-  color: inherit;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  color: #111;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .select-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
 }
 
 .select-card .emoji {
@@ -79,14 +89,10 @@ body {
 
 .select-card p {
   font-size: 13px;
-  color: #666;
+  color: #555;
 }
 
 /* 기타 입력 */
-.custom-card {
-  cursor: default;
-}
-
 .custom-input {
   margin-top: 12px;
   width: 100%;
@@ -103,7 +109,9 @@ body {
 .loading-screen {
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, #f7f8fa, #ffffff);
+  background-image: url("./images/background.jpg");
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -113,7 +121,8 @@ body {
 .loading-text {
   margin-top: 16px;
   font-size: 14px;
-  color: #555;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
 /* 🌈 색이 변하는 스피너 */
@@ -138,7 +147,7 @@ body {
   content: "";
   position: absolute;
   inset: 9px;
-  background: #ffffff;
+  background: rgba(255,255,255,0.9);
   border-radius: 50%;
 }
 
@@ -156,4 +165,36 @@ body {
 ===================== */
 .result-screen {
   max-width: 520px;
-  margin: 0 auto
+  margin: 0 auto;
+  padding: 48px 20px;
+  text-align: center;
+}
+
+.palette {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.color-box {
+  width: 96px;
+  height: 96px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* 다시 추천 버튼 */
+.retry-btn {
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: none;
+  font-size: 14px;
+  background: #111;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.retry-btn:hover {
+  opacity: 0.9;
+}
