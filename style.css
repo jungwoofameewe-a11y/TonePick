@@ -18,6 +18,12 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  /* ⭐ 이게 빠져서 글자가 오른쪽 위로 간거 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   color: #ffffff;
 }
 
