@@ -210,3 +210,26 @@ h1 {
 .retry-btn:hover {
   opacity: 0.9;
 }
+
+h1 {
+  font-size: 48px;   /* 메인 제목 */
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 20px;   /* 설명 문장 */
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 26px;   /* "어떤 분야…" 같은 제목 */
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.option-btn {
+  font-size: 18px;   /* 버튼 글자 */
+  padding: 16px 24px;
+}
